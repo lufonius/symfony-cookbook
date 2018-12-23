@@ -1,0 +1,9 @@
+{% extends 'views/base.html.twig' %}
+
+{% block title %}Recipes{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h2>Child</h2>
+    {{ include('views/recipe.html.twig', { 'title': "Some Title passed from the parent" }) }}
+{% endblock %}

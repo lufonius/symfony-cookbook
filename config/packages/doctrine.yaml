@@ -9,6 +9,9 @@ doctrine:
     dbal:
         # configure these for your database server
         driver: 'pdo_mysql'
+        # so the pdo_driver knows which implementation for the pdo interface to use ...
+        # since i'm not using the default implementation which lays in /var/mysql/mysql.sock
+        unix_socket: '%env(resolve:PDO_IMPLEMENTATION_PATH)%'
         server_version: '5.7'
         charset: utf8mb4
         default_table_options:
@@ -21,9 +24,9 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            App:
+            Recipe:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
+                dir: '%kernel.project_dir%/src/Domains/Recipe/DomainLayer/Entity'
                 prefix: 'App\Entity'
                 alias: App

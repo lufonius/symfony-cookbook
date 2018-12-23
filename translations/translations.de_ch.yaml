@@ -1,0 +1,3 @@
+EXCEPTION_MESSAGES:
+  RECIPE:
+    RECIPE_NOT_FOUND: "Rezept konnte nicht gefunden werden!"

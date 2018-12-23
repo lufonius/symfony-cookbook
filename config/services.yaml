@@ -24,5 +24,13 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    App\Domains\Recipe\DomainLayer\Aggregation\RecipeRootAggregationInterface:
+        class: App\Domains\Recipe\DomainLayer\Aggregation\RootAggregation
+        autowire: true
+
+    App\Domains\Recipe\DomainLayer\BusinessLogic\RecipeBusinessLogicInterface:
+        class: App\Domains\Recipe\DomainLayer\BusinessLogic\BusinessLogic
+        autowire: true
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
