@@ -1,0 +1,9 @@
+@import './recipe-list/recipe-list';
+
+@mixin pages() {
+  @include recipe-list();
+}
+
+@mixin pages-theme() {
+  @include recipe-list-theme();
+}

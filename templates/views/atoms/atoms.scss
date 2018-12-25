@@ -1,0 +1,9 @@
+@import 'highlight-input/highlight-input';
+
+@mixin atoms() {
+  @include highlight-input();
+}
+
+@mixin atoms-theme() {
+  @include highlight-input-theme();
+}

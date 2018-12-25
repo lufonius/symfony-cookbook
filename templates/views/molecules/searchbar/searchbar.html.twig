@@ -1,0 +1,11 @@
+<div class="search-bar-container">
+    {{ include('views/atoms/highlight-input/highlight-input.html.twig', {
+        placeholder: searchInputPlaceholder,
+        name: searchInputName,
+        value: searchInputValue
+    }) }}
+    <button type="submit" class="search-button waves-effect waves-light btn blue darken-3">
+        <i class="material-icons left">search</i>
+        {{ searchButtonText }}
+    </button>
+</div>

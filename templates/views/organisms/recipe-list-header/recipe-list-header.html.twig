@@ -1,0 +1,21 @@
+<section class="recipe-list-header">
+    <div class="background blue">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 offset-m1 m10 offset-l1 l10 offset-xl2 xl8">
+                    <div class="filter-container">
+                        <div class="flex-fill"></div>
+                        <form action="/recipe-list" method="post">
+                            {{ include('views/molecules/searchbar/searchbar.html.twig', {
+                                searchInputPlaceholder: ('PAGES.RECIPE_LIST.INPUT_PLACEHOLDER' | trans),
+                                searchInputName: 'search',
+                                searchInputValue: searchInputValue,
+                                searchButtonText: ('PAGES.RECIPE_LIST.BUTTON_TEXT' | trans)
+                            }) }}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

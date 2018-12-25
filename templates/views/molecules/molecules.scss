@@ -1,0 +1,9 @@
+@import './searchbar/searchbar';
+
+@mixin molecules() {
+  @include searchbar();
+}
+
+@mixin molecules-theme() {
+  @include searchbar-theme();
+}

@@ -1,0 +1,9 @@
+EXCEPTION_MESSAGES:
+  RECIPE:
+    RECIPE_NOT_FOUND: "Couldn't find recipe!"
+
+PAGES:
+  RECIPE_LIST:
+    TITLE: "Recipes"
+    INPUT_PLACEHOLDER: "Search recipes"
+    BUTTON_TEXT: "Search"

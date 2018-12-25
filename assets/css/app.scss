@@ -1,0 +1,5 @@
+@import '../../node_modules/materialize-css/sass/materialize';
+@import '../../templates/views/app';
+
+@include app();
+@include app-theme();

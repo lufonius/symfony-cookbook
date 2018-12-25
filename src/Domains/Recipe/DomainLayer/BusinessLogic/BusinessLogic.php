@@ -9,7 +9,7 @@ use App\Domains\Recipe\DomainLayer\Entity\Recipe;
 class BusinessLogic implements RecipeBusinessLogicInterface {
 
     public function removeRecipe($id) {
-        $test = "test";
+
     }
     public function addRecipe(Recipe $recipe) {}
     public function findRecipeByQuery(RecipeQueryRequest $query) {}

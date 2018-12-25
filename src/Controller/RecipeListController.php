@@ -2,15 +2,16 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class RecipeListController {
+class RecipeListController extends AbstractController {
     public function recipeList() {
-        $helloWorld = "Hello World!";
+        $searchValue = (isset($_POST['search'])) ? $_POST['search'] : "";
 
-        return new Response(
-            '<h1>'.$helloWorld.'</h1>'
-        );
+        return $this->render('views/pages/recipe-list/recipe-list.html.twig', [
+            'searchInputValue' => ($searchValue !== null) ? $searchValue : ""
+        ]);
     }
 }
 

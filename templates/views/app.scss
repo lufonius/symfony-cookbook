@@ -1,0 +1,18 @@
+@import './organisms/organism';
+@import './molecules/molecules';
+@import './pages/pages';
+@import './atoms/atoms';
+
+@mixin app() {
+  @include organism();
+  @include pages();
+  @include atoms();
+  @include molecules();
+}
+
+@mixin app-theme() {
+  @include organism-theme();
+  @include pages-theme();
+  @include atoms-theme();
+  @include molecules-theme();
+}
