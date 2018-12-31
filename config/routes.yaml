@@ -1,3 +1,6 @@
 recipe_list:
   path: /recipe-list
   controller: App\Controller\RecipeListController::recipeList
+recipe:
+  path: /recipe/{recipeId}
+  controller: App\Controller\RecipeListController::recipeDetail

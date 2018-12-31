@@ -28,5 +28,23 @@ doctrine:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/Domains/Recipe/DomainLayer/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                prefix: 'App\Domains\Recipe\DomainLayer\Entity'
+                alias: Recipe
+            RecipeIngredient:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Domains/Recipe/DomainLayer/Entity'
+                prefix: 'App\Domains\Recipe\DomainLayer\Entity'
+                alias: RecipeIngredient
+            Step:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Domains/Recipe/DomainLayer/Entity'
+                prefix: 'App\Domains\Recipe\DomainLayer\Entity'
+                alias: Step
+            Ingredient:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Domains/Core/Entity'
+                prefix: 'App\Domains\Core\Entity'
+                alias: Ingredient

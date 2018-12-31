@@ -1,0 +1,13 @@
+<section class="recipe-list-body">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 offset-m1 m10 offset-l1 l10 offset-xl2 xl8">
+                {% for recipe in recipes %}
+                    {{ include('views/molecules/recipe-list-item/recipe-list-item.html.twig', {
+                        recipe: recipe
+                    }) }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

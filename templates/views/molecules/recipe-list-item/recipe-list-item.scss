@@ -1,0 +1,68 @@
+@import '../../variables';
+
+@mixin recipe-list-item() {
+  $height: 100px;
+
+  a { color: inherit; }
+  a:link { color: inherit; }
+  a:visited { color: inherit; }
+  a:hover { color: inherit; }
+
+  .recipe-list-item {
+    display: flex;
+    flex-direction: row;
+
+    height: $height;
+    width: 100%;
+
+    cursor: pointer;
+
+    transition: 100ms ease-in-out;
+
+    .image-container {
+      height: $height;
+      width: $height;
+      min-width: $height;
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      padding: 8px;
+
+      .title span {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .description span {
+        font-size: 14px;
+      }
+    }
+
+    .navigation-indicator-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        transition: 100ms ease-in-out;
+      }
+    }
+  }
+
+  .recipe-list-item:hover {
+    @extend %z-depth-0-half;
+    margin-left: 8px;
+
+    .navigation-indicator-container i {
+      margin-right: 5px;
+    }
+  }
+}
+
+@mixin recipe-list-item-theme() {
+
+}

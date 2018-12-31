@@ -32,5 +32,21 @@ services:
         class: App\Domains\Recipe\DomainLayer\BusinessLogic\BusinessLogic
         autowire: true
 
+    App\Domains\Recipe\DomainLayer\Repository\RecipeRepositoryInterface:
+        class: App\Domains\Recipe\DomainLayer\Repository\RecipeRepository
+        autowire: true
+
+    App\Domains\Recipe\DomainLayer\Repository\RecipeIngredientRepositoryInterface:
+        class: App\Domains\Recipe\DomainLayer\Repository\RecipeIngredientRepository
+        autowire: true
+
+    App\Domains\Recipe\DomainLayer\Repository\StepRepositoryInterface:
+        class: App\Domains\Recipe\DomainLayer\Repository\StepRepository
+        autowire: true
+
+    App\ViewModel\ViewModelFactory:
+        class: App\ViewModel\ViewModelFactory
+        autowire: true
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

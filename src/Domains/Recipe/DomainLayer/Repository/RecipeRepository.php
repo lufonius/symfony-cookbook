@@ -3,48 +3,22 @@
 namespace App\Domains\Recipe\DomainLayer\Repository;
 
 use App\Domains\Recipe\DomainLayer\Entity\Recipe;
-use App\Domains\Core\Interfaces\BaseQueryRequest;
-use App\Domains\Core\Interfaces\CollectionInterface;
+use App\Domains\Recipe\DomainLayer\Repository\RecipeRepositoryInterface;
 use App\Domains\Core\Exceptions\RecipeNotFoundException;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 
-class RecipeRepository extends ServiceEntityRepository implements CollectionInterface
+class RecipeRepository extends ServiceEntityRepository implements RecipeRepositoryInterface
 {
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Recipe::class);
     }
 
-    private function getRecipes(RecipeQueryRequest $query): array
-    {
-        $queryBuilder = $this->createQueryBuilder('recipe');
-
-        foreach($query->getQueryFilters() as $key => $value) {
-            $queryBuilder = $queryBuilder
-                ->orWhere('recipe.'.$key.' = :'.$key)
-                ->setParameter($key, $value);
-        }
-
-        return $queryBuilder
-            ->orderBy('r.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-
-    private function findRecipe($id): Recipe {
-        return $this
-            ->createQueryBuilder('recipe')
-            ->andWhere('recipe.id = $id')
-            ->setParameter('id', $id)
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
-
     private function updateRecipe($id, Recipe $recipeToUpdate) {
-        $recipe = $this->findRecipe($id);
+        $recipe = $this->find($id);
 
         try {
             if ($recipe !== null) {
@@ -66,7 +40,7 @@ class RecipeRepository extends ServiceEntityRepository implements CollectionInte
     }
 
     private function deleteRecipe($id) {
-        $recipe = $this->findRecipe($id);
+        $recipe = $this->find($id);
 
         try {
             if($recipe !== null) {
@@ -82,12 +56,13 @@ class RecipeRepository extends ServiceEntityRepository implements CollectionInte
     }
 
     private function upsertRecipe(Recipe $recipeToUpsert) {
-        $recipe = $this->findRecipe($recipeToUpsert->getId());
+        $recipe = $this->find($recipeToUpsert->getId());
 
         if($recipe !== null) {
             $this->updateRecipe($recipe->getId(), $recipe);
+            return $recipe;
         } else {
-
+            return $this->insertRecipe($recipe);
         }
     }
 
@@ -100,17 +75,17 @@ class RecipeRepository extends ServiceEntityRepository implements CollectionInte
         return  $recipe;
     }
 
-    public function findById(int $id){
-        return $this->findRecipe($id);
+    public function getById($id) {
+        return $this->find($id);
     }
 
-    public function findByQuery(BaseQueryRequest $query): array
+    public function getByCriteria(array $criteria): array
     {
-        return $this->getRecipes($query);
+        return $this->findBy($criteria);
     }
 
     public function get(): array {
-        return $this->getRecipes();
+        return $this->findAll();
     }
 
     public function add($entity): Recipe
@@ -128,8 +103,8 @@ class RecipeRepository extends ServiceEntityRepository implements CollectionInte
         $this->updateRecipe($id, $entity);
     }
 
-    public function upsert(int $id, $entity)
+    public function upsert($entity)
     {
-        $this->upsertRecipe($entity);
+        return $this->upsertRecipe($entity);
     }
 }

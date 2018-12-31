@@ -1,4 +1,11 @@
 <?php
+/*
+ * Implement annotation for different kind of ways to filter, ex.: isNull, has, etc.,
+ * and also different operators, AND / OR
+ * field for the database
+ * -> to be created by a factory ...
+ * */
+
 namespace App\Domains\Core\Interfaces;
 
 class BaseQueryRequest {

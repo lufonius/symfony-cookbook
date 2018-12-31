@@ -1,0 +1,12 @@
+@mixin recipe-list-body() {
+  .recipe-list-body {
+    .recipe-list-item {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+@mixin recipe-list-body-theme() {
+
+}

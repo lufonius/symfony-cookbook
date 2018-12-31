@@ -1,9 +1,14 @@
 EXCEPTION_MESSAGES:
   RECIPE:
-    RECIPE_NOT_FOUND: "Couldn't find recipe!"
+    NOT_FOUND: "Couldn't find recipe!"
+  RECIPE_INGREDIENT:
+    NOT_FOUND: "Couldn't find ingredients for recipe"
+  STEP:
+    NOT_FOUND: "Couldn't find step of recipe"
 
 PAGES:
   RECIPE_LIST:
     TITLE: "Recipes"
-    INPUT_PLACEHOLDER: "Search recipes"
-    BUTTON_TEXT: "Search"
+    SEARCH_FORM:
+      INPUT_PLACEHOLDER: "Search recipes"
+      BUTTON_LABEL: "Search"

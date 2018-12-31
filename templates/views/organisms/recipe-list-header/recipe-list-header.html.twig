@@ -7,10 +7,10 @@
                         <div class="flex-fill"></div>
                         <form action="/recipe-list" method="post">
                             {{ include('views/molecules/searchbar/searchbar.html.twig', {
-                                searchInputPlaceholder: ('PAGES.RECIPE_LIST.INPUT_PLACEHOLDER' | trans),
-                                searchInputName: 'search',
-                                searchInputValue: searchInputValue,
-                                searchButtonText: ('PAGES.RECIPE_LIST.BUTTON_TEXT' | trans)
+                                inputPlaceholder: searchForm.input.placeholder,
+                                inputName: 'search',
+                                inputValue: searchForm.input.value,
+                                submitLabel: searchForm.submit.label
                             }) }}
                         </form>
                     </div>

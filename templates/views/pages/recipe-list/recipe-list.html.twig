@@ -6,10 +6,12 @@
 
     <header>
         {{ include('views/organisms/recipe-list-header/recipe-list-header.html.twig', {
-            searchInputValue: searchInputValue
+            searchForm: searchForm
         }) }}
     </header>
     <main>
-        {{ include('views/organisms/recipe-list-body/recipe-list-body.html.twig') }}
+        {{ include('views/organisms/recipe-list-body/recipe-list-body.html.twig', {
+            recipes: recipes
+        }) }}
     </main>
 {% endblock %}

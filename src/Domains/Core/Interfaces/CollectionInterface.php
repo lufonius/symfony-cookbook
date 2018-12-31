@@ -5,9 +5,9 @@ use App\Domains\Core\Interfaces\BaseQueryRequest;
 
 interface CollectionInterface {
 
-    public function findById(int $id);
+    public function getById($id);
 
-    public function findByQuery(BaseQueryRequest $query): array;
+    public function getByCriteria(array $criteria): array;
 
     public function get(): array;
 
@@ -15,7 +15,7 @@ interface CollectionInterface {
 
     public function update(int $id, $entity);
 
-    public function upsert(int $id, $entity);
+    public function upsert($entity);
 
     public function remove(int $id);
 

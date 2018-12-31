@@ -2,10 +2,12 @@
 
 namespace App\Domains\Recipe\DomainLayer\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Domains\Recipe\DomainLayer\Repository\RecipeRepository")
+ * @ORM\Entity(repositoryClass="App\Domains\Recipe\DomainLayer\Repository\RecipeRepositoryInterface")
  */
 class Recipe
 {
@@ -40,6 +42,22 @@ class Recipe
      * @ORM\Column(type="blob")
      */
     private $image_big;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Domains\Recipe\DomainLayer\Entity\RecipeIngredient", mappedBy="recipe", orphanRemoval=true)
+     */
+    private $ingredients;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Domains\Recipe\DomainLayer\Entity\Step", mappedBy="recipe", orphanRemoval=true)
+     */
+    private $steps;
+
+    public function __construct()
+    {
+        $this->ingredients = new ArrayCollection();
+        $this->steps = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -114,6 +132,68 @@ class Recipe
     public function setImageBig($image_big): self
     {
         $this->image_big = $image_big;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RecipeIngredient[]
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(RecipeIngredient $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(RecipeIngredient $ingredient): self
+    {
+        if ($this->ingredients->contains($ingredient)) {
+            $this->ingredients->removeElement($ingredient);
+            // set the owning side to null (unless already changed)
+            if ($ingredient->getRecipe() === $this) {
+                $ingredient->setRecipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Step[]
+     */
+    public function getSteps(): Collection
+    {
+        return $this->steps;
+    }
+
+    public function addStep(Step $step): self
+    {
+        if (!$this->steps->contains($step)) {
+            $this->steps[] = $step;
+            $step->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStep(Step $step): self
+    {
+        if ($this->steps->contains($step)) {
+            $this->steps->removeElement($step);
+            // set the owning side to null (unless already changed)
+            if ($step->getRecipe() === $this) {
+                $step->setRecipe(null);
+            }
+        }
 
         return $this;
     }

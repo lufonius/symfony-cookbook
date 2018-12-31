@@ -1,9 +1,12 @@
 @import './searchbar/searchbar';
+@import 'recipe-list-item/recipe-list-item';
 
 @mixin molecules() {
   @include searchbar();
+  @include recipe-list-item();
 }
 
 @mixin molecules-theme() {
   @include searchbar-theme();
+  @include recipe-list-item-theme();
 }

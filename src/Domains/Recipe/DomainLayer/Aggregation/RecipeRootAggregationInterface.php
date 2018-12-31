@@ -1,26 +1,31 @@
 <?php
-//add interface for the aggregation here since aggregation depends upon business logic
-//and not vice versa (business logic is the most protected ... the least to change)
+/*
+ * this file aggregates all of the entities, ex.: getting a recipe with all ingredients and
+ * steps
+ * */
 namespace App\Domains\Recipe\DomainLayer\Aggregation;
 
 use \App\Domains\Recipe\DomainLayer\Entity\Recipe;
+use \App\Domains\Recipe\DomainLayer\Entity\RecipeIngredient;
+use \App\Domains\Recipe\DomainLayer\Entity\Step;
 use \App\Domains\Recipe\DomainLayer\Repository\RecipeQueryRequest;
 
 interface RecipeRootAggregationInterface {
 
-    public function removeRecipe($id);
+    public function removeRecipe($recipeId);
     public function addRecipe(Recipe $recipe);
-    public function findRecipeByQuery(RecipeQueryRequest $query);
-    public function updateRecipe($id, Recipe $recipe);
-    public function getRecipeWithInfos($id);
+    public function getRecipes(array $criteria);
+    public function updateRecipe($recipeId, Recipe $recipe);
+    public function findRecipe($recipeId);
 
+    public function updateStep($stepId, Step $step);
+    public function removeStep($stepId);
+    public function addStep(Step $step);
+    public function findStep($stepId): Step;
 
-    public function updateRecipeStep($id, $title, $description);
-    public function assignRecipeStepToRecipe();
-    public function dissociateRecipeStepFromRecipe();
+    public function updateRecipeIngredient($recipeIngredientId, RecipeIngredient $recipeIngredient);
+    public function removeRecipeIngredient($recipeIngredientId);
+    public function addRecipeIngredient(RecipeIngredient $recipeIngredient);
+    public function findRecipeIngredient($recipeIngredientId): RecipeIngredient;
 
-
-    public function updateRecipeIngredient($amount);
-    public function assignRecipeIngredientToRecipe();
-    public function dissociateRecipeIngredientFromRecipe();
 }
