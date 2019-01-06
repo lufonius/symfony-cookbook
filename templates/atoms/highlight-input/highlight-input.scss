@@ -1,0 +1,15 @@
+@mixin highlight-input() {
+  .highlight-input-container {
+    width: 100%;
+
+    input {
+      border-radius: 3px;
+      padding: 10px;
+      border: 0px;
+    }
+  }
+}
+
+@mixin highlight-input-theme() {
+
+}

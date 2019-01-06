@@ -25,7 +25,7 @@ class BusinessLogic implements RecipeBusinessLogicInterface {
         $this->rootAggregation->removeRecipe($recipeId);
     }
 
-    public function getRecipes(array $criteria) {
+    public function getRecipes($criteria) {
         return $this->rootAggregation->getRecipes($criteria);
     }
 

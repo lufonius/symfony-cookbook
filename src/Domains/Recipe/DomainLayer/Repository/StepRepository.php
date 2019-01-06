@@ -79,7 +79,7 @@ class StepRepository extends ServiceEntityRepository implements StepRepositoryIn
         return $this->find($id);
     }
 
-    public function getByCriteria(array $criteria): array
+    public function getByCriteria($criteria): array
     {
         return $this->findBy($criteria);
     }

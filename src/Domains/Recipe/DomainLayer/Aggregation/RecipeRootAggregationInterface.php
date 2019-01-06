@@ -14,7 +14,7 @@ interface RecipeRootAggregationInterface {
 
     public function removeRecipe($recipeId);
     public function addRecipe(Recipe $recipe);
-    public function getRecipes(array $criteria);
+    public function getRecipes($criteria);
     public function updateRecipe($recipeId, Recipe $recipe);
     public function findRecipe($recipeId);
 

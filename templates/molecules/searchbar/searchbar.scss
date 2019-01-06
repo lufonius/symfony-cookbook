@@ -1,0 +1,29 @@
+@import '../../variables';
+
+@mixin searchbar() {
+  .search-bar-container{
+    display: flex;
+    flex-direction: row;
+
+    .search-container {
+      flex: 1;
+
+      input {
+        width: 100%;
+        border-radius: 3px;
+        padding: 10px;
+        border: 0px;
+
+        @extend %z-depth-0-half;
+      }
+    }
+
+    .submit-container {
+      margin-left: 16px;
+    }
+  }
+}
+
+@mixin searchbar-theme() {
+
+}

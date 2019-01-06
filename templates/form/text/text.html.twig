@@ -1,0 +1,33 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_errors %}
+    {% if errors | length > 0 %}
+        {% for error in errors %}
+            <span class="helper-text" data-error="{{ error.message | trans }}"></span>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+
+{% block text_widget %}
+
+    {% set type = type | default('text') %}
+    {% set attr = attr | merge({
+        'placeholder': attr.placeholder | default('') | trans
+    }) %}
+
+    {% if errors | length > 0 %}
+        {% set attr = attr | merge({
+            'class': attr.class | default('') ~ ' invalid'
+        }) %}
+    {% endif %}
+
+    {% set required = required | default('required') %}
+
+    <div class="input-field test">
+        {{ block('form_widget_simple') }}
+        <label for="{{ id }}">{{ label | default('') | trans }}</label>
+        {{ block('form_errors') }}
+    </div>
+
+{% endblock %}

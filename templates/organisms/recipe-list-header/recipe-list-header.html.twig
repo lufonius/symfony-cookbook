@@ -5,13 +5,11 @@
                 <div class="col s12 offset-m1 m10 offset-l1 l10 offset-xl2 xl8">
                     <div class="filter-container">
                         <div class="flex-fill"></div>
-                        <form action="/recipe-list" method="post">
-                            {{ include('views/molecules/searchbar/searchbar.html.twig', {
-                                inputPlaceholder: searchForm.input.placeholder,
-                                inputName: 'search',
-                                inputValue: searchForm.input.value,
-                                submitLabel: searchForm.submit.label
+                        {{ form_start(form) }}
+                            {{ include('molecules/searchbar/searchbar.html.twig', {
+                                form: form
                             }) }}
+                        {{ form_end(form) }}
                         </form>
                     </div>
                 </div>

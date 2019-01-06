@@ -1,7 +1,7 @@
-@import './organisms/organism';
-@import './molecules/molecules';
-@import './pages/pages';
-@import './atoms/atoms';
+@import 'organisms/organism';
+@import 'molecules/molecules';
+@import 'pages/pages';
+@import 'atoms/atoms';
 
 @mixin app() {
   @include organism();

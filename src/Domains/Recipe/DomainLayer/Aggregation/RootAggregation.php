@@ -36,7 +36,7 @@ class RootAggregation implements RecipeRootAggregationInterface {
         return $this->recipeRepository->add($recipe);
     }
 
-    public function getRecipes(array $criteria){
+    public function getRecipes($criteria){
         return $this->recipeRepository->getByCriteria($criteria);
     }
 

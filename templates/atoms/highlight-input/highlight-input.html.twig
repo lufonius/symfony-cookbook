@@ -1,0 +1,17 @@
+{#
+    only includes the blocks, but not the rendered page
+    that's important, otherwise it tries to render the blocks.
+    since there are no variables (id, attr) it will throw an error
+
+    not needed (could be made like the submit-theme) but stays here since it's an experiment
+ #}
+
+{% use 'form_div_layout.html.twig' %}
+
+{% block search_widget %}
+    {% set type = type|default('text') %}
+    {% set attr = attr | merge({
+        'placeholder': attr.placeholder | default('') | trans
+    }) %}
+    {{ block('form_widget_simple') }}
+{% endblock %}

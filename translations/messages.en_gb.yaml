@@ -12,3 +12,9 @@ PAGES:
     SEARCH_FORM:
       INPUT_PLACEHOLDER: "Search recipes"
       BUTTON_LABEL: "Search"
+  RECIPE_EDIT:
+    TITLE: "Edit or create recipe"
+    FORM:
+      TITLE_PLACEHOLDER: "Ex: Schnitzel, Kebab"
+      TITLE_LABEL: "Recipe title"
+      SUBMIT_LABEL: "Save"

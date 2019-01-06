@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ "PAGES.RECIPE_LIST.TITLE" | trans }}{% endblock %}
+
+{% block body %}
+
+    <header>
+        {{ include('organisms/recipe-list-header/recipe-list-header.html.twig', {
+            form: searchForm
+        }) }}
+    </header>
+    <main>
+        {{ include('organisms/recipe-list-body/recipe-list-body.html.twig', {
+            recipes: recipes
+        }) }}
+    </main>
+{% endblock %}

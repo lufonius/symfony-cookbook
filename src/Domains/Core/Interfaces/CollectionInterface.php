@@ -7,7 +7,7 @@ interface CollectionInterface {
 
     public function getById($id);
 
-    public function getByCriteria(array $criteria): array;
+    public function getByCriteria($criteria): array;
 
     public function get(): array;
 

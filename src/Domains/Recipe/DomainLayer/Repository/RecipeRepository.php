@@ -79,9 +79,17 @@ class RecipeRepository extends ServiceEntityRepository implements RecipeReposito
         return $this->find($id);
     }
 
-    public function getByCriteria(array $criteria): array
+    public function getByCriteria($criteria): array
     {
-        return $this->findBy($criteria);
+        $queryBuilder = $this->createQueryBuilder('recipe');
+
+        if($criteria) {
+            $queryBuilder = $queryBuilder->addCriteria($criteria);
+        }
+
+        $queryBuilder = $queryBuilder->getQuery();
+
+        return $queryBuilder->execute();
     }
 
     public function get(): array {

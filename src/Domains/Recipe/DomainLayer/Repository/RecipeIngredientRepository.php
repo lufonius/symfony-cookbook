@@ -78,7 +78,7 @@ class RecipeIngredientRepository extends ServiceEntityRepository implements Reci
         return $this->find($id);
     }
 
-    public function getByCriteria(array $criteria): array
+    public function getByCriteria($criteria): array
     {
         return $this->findBy($criteria);
     }

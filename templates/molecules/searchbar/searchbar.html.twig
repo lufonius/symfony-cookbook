@@ -1,0 +1,31 @@
+{% form_theme form with [
+    'form/submit/submit.html.twig'
+] %}
+
+{% use 'atoms/highlight-input/highlight-input.html.twig' %}
+
+<div class="search-bar-container">
+
+    <div class="search-container">
+        {{ form_widget(form.search, {
+            'required': false,
+            'attr': {
+                'class': 'browser-default',
+                'placeholder': 'PAGES.RECIPE_LIST.SEARCH_FORM.INPUT_PLACEHOLDER'
+            }
+        }) }}
+    </div>
+
+    <div class="submit-container">
+        {{ form_widget(form.submit, {
+            'icon': 'search',
+            'label': 'PAGES.RECIPE_LIST.SEARCH_FORM.BUTTON_LABEL',
+            'attr': {
+                'class': 'blue'
+            }
+        }) }}
+    </div>
+
+</div>
+
+{#  #}

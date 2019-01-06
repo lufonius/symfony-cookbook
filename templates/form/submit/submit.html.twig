@@ -1,0 +1,22 @@
+{% block submit_widget %}
+
+    {% set type = type | default('submit') %}
+
+    {# just adding some default classes #}
+    {% set attr = attr|merge({
+        'class' : (attr.class | default('') ~ ' waves-effect waves-light btn')|trim
+    }) %}
+
+    {% set required = required | default('required') %}
+
+    <button type="{{ type }}" {{ block('widget_attributes') }}>
+
+        {% if icon is defined and icon is not empty %}
+            <i class="material-icons left">{{ icon }}</i>
+        {% endif %}
+
+        {{ label | default('Submit') | trans }}
+
+    </button>
+
+{% endblock %}

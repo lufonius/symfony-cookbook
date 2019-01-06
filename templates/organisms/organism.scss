@@ -1,5 +1,5 @@
-@import 'recipe-list-header/recipe-list-header.scss';
-@import 'recipe-list-body/recipe-list-body.scss';
+@import 'recipe-list-header/recipe-list-header';
+@import 'recipe-list-body/recipe-list-body';
 
 @mixin organism () {
   @include recipe-list-header();

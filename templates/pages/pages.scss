@@ -1,0 +1,12 @@
+@import 'recipe-list/recipe-list';
+@import 'recipe-edit/recipe-edit';
+
+@mixin pages() {
+  @include recipe-list();
+  @include recipe-edit();
+}
+
+@mixin pages-theme() {
+  @include recipe-list-theme();
+  @include recipe-edit-theme();
+}

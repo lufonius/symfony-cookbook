@@ -1,0 +1,12 @@
+@import './text/text';
+@import './submit/submit';
+
+@mixin form() {
+  @include text();
+  @include submit();
+}
+
+@mixin form-theme() {
+  @include text-theme();
+  @include submit-theme();
+}
